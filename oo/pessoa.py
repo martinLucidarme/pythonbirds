@@ -10,6 +10,13 @@ class Pessoa:
     def cumprimentar(self):
         return f'olá {id(self)}'
 
+    @staticmethod #método de classe, atrelado a classe
+    def metodo_estatico():
+        return '42'
+    @classmethod   #utilizado para obter atributos da classe
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} tem {cls.olhos} olhos '
+
 
 if __name__ == '__main__':
     clayton = Pessoa(nome='Zé')
@@ -30,3 +37,5 @@ if __name__ == '__main__':
     clayton.olhos=5 #faz olho aparecer no dict do Clayton
     print(clayton.olhos)
     print(clayton.__dict__)
+    print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), clayton.nome_e_atributos_de_classe())
