@@ -93,42 +93,33 @@ O       L
 
 class Motor:
 
-    def __init__(self):
-            self.velocidade= 0
+    def __init__(self,velocidade=0):
+            self.velocidade= velocidade
 
     def acelerar(self):
             self.velocidade += 1
 
     def frear(self):
-        if self.velocidade <= 1:
-            self.velocidade = 0
-        else:
-            self.velocidade += -2
-
+            self.velocidade -= 2
+            self.velocidade = max(0, self.velocidade) # avoids if/else"
+NORTE = 'Norte'
+LESTE = 'Leste'
+OESTE = 'Oeste'
+SUL = 'Sul'
 class Direcao:
-    def __init__(self, valor='Norte'):
-        self.valor = valor
+
+
+    rotacao_a_direita_dct = {NORTE:LESTE, LESTE:SUL, SUL:OESTE, OESTE:NORTE} #big elif: probably possible to use dict"
+    rotacao_a_esquerda_dct = {NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL}
+
+    def __init__(self):
+        self.valor = NORTE
 
     def girar_a_esquerda(self):
-        if self.valor == 'Norte':
-            self.valor = 'Oeste'
-        elif self.valor == 'Oeste':
-            self.valor = 'Sul'
-        elif self.valor == 'Sul':
-            self.valor = 'Leste'
-        else:
-            self.valor = 'Norte'
-        return self.valor
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
 
     def girar_a_direita(self):
-        if self.valor == 'Norte':
-            self.valor = 'Leste'
-        elif self.valor == 'Leste':
-            self.valor = 'Sul'
-        elif self.valor == 'Sul':
-            self.valor = 'Oeste'
-        else:
-            self.valor = 'Norte'
+        self.valor = self.rotacao_a_direita_dct[self.valor]
 
 if __name__ == '__main__':
 
