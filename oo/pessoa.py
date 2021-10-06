@@ -17,10 +17,13 @@ class Pessoa:
     def nome_e_atributos_de_classe(cls):
         return f'{cls} tem {cls.olhos} olhos '
 
+class Homem(Pessoa): #exemplo da Herança: Homem herde de todos os atributos de Pessoa
+    pass
+
 
 if __name__ == '__main__':
-    clayton = Pessoa(nome='Zé')
-    luciano = Pessoa(clayton, nome='Martin')
+    clayton = Homem(nome='Zé')
+    luciano = Homem(clayton, nome='Martin')
     print(luciano.cumprimentar())
     print(luciano.nome)
     print(luciano.idade)
@@ -39,3 +42,8 @@ if __name__ == '__main__':
     print(clayton.__dict__)
     print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
     print(Pessoa.nome_e_atributos_de_classe(), clayton.nome_e_atributos_de_classe())
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa,Pessoa)) #pessoa é da classe Pessoa ? = True
+    print(isinstance(pessoa, Homem)) #pessoa é da classe Homem ? = false
+    print(isinstance(clayton, Pessoa))
+    print(isinstance(clayton, Homem))
