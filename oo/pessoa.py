@@ -19,11 +19,13 @@ class Pessoa:
 
 class Homem(Pessoa): #exemplo da Herança: Homem herde de todos os atributos de Pessoa
     pass
-
+class Mutante(Pessoa):
+    olhos = 3
+    pass
 
 if __name__ == '__main__':
-    clayton = Homem(nome='Zé')
-    luciano = Homem(clayton, nome='Martin')
+    renzo = Mutante(nome='Zé')
+    luciano = Homem(renzo, nome='Martin')
     print(luciano.cumprimentar())
     print(luciano.nome)
     print(luciano.idade)
@@ -37,13 +39,15 @@ if __name__ == '__main__':
     print(luciano.__dict__)
     print(Pessoa.olhos)
     print(luciano.olhos)
-    clayton.olhos=5 #faz olho aparecer no dict do Clayton
-    print(clayton.olhos)
-    print(clayton.__dict__)
+    #renzo.olhos=5 #faz olho aparecer no dict do Clayton
+    print(renzo.olhos)
+    print(renzo.__dict__)
     print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
-    print(Pessoa.nome_e_atributos_de_classe(), clayton.nome_e_atributos_de_classe())
+    print(Pessoa.nome_e_atributos_de_classe(), renzo.nome_e_atributos_de_classe())
     pessoa = Pessoa('Anonimo')
     print(isinstance(pessoa,Pessoa)) #pessoa é da classe Pessoa ? = True
     print(isinstance(pessoa, Homem)) #pessoa é da classe Homem ? = false
-    print(isinstance(clayton, Pessoa))
-    print(isinstance(clayton, Homem))
+    print(isinstance(renzo, Pessoa))
+    print(isinstance(renzo, Homem))
+    print(renzo.olhos)
+
