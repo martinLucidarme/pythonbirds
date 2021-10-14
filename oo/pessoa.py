@@ -8,7 +8,7 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'olá {id(self)}'
+        return f'olá meu nome é {self.nome}'
 
     @staticmethod #método de classe, atrelado a classe
     def metodo_estatico():
@@ -18,7 +18,10 @@ class Pessoa:
         return f'{cls} tem {cls.olhos} olhos '
 
 class Homem(Pessoa): #exemplo da Herança: Homem herde de todos os atributos de Pessoa
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe = super().cumprimentar() #super() acessa a classe py do Homem no caso.
+        return f'{cumprimentar_da_classe}, aperto de mão'
+
 class Mutante(Pessoa):
     olhos = 3
     pass
@@ -27,6 +30,7 @@ if __name__ == '__main__':
     renzo = Mutante(nome='Zé')
     luciano = Homem(renzo, nome='Martin')
     print(luciano.cumprimentar())
+    print(renzo.cumprimentar())
     print(luciano.nome)
     print(luciano.idade)
     for filho in luciano.filhos:

@@ -58,7 +58,7 @@ class PassaroFake(AtorFake):
 
     def lancar(self, angulo, tempo):
         if self._lancado:
-            raise DuploLancamentoExcecao()
+            raise DuploLancamentoExcecao()#raise allows to explicit an error without having to execute anything under
         self._lancado = True
 
     def colidir_com_chao(self):
