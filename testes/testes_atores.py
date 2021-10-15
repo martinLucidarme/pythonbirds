@@ -127,7 +127,7 @@ class AtorTestes(TestCase):
     def assert_nao_colisao(self, ator, ator2):
         """
         Se certifica que não colisão entre dois atores
-        Atenção: Esse não é método de teste porque nao se inicia com prefixo "text".
+        Atenção: Esse não é método de teste porque nao se inicia com prefixo "test".
         Ele apenas encapsula a lógica de não colisão entre dois atores.
         So seja, eles deve manter seus respectivos status mesmo depois da chamada do metodo colidir
         """
